@@ -101,40 +101,40 @@ $sesnamaadik = $_SESSION["txtnamaadik"] ?? "";
         </label>
 
         <label for="txtnamalengkap"><span>Nama Lengkap:</span>
-          <input type="Nama" id="txtnamalengkap" name="txtnamalengkap" placeholder="ubah di sini........." required autocomplete="nama">
+          <input type="Nama" id="txtnamaanda" name="txtnamaanda" placeholder="ubah" required autocomplete="nama">
         </label>
 
         <label for="txttempatlahir"><span>Tempat Lahir:</span>
-          <input type="Tempat lahir" id="txttempatlahir" name="txttempatlahir" placeholder="ubah di sini........." required autocomplete="email">
+          <input type="Tempat lahir" id="txttempatlahiranda" name="txttempatlahiranda" placeholder="ubah" required autocomplete="email">
         </label>
 
         <label for="txttanggallahir"><span>Tanggal Lahir:</span>
-          <input type="Tanggal lahir" id="txttanggallahir" name="txttanggallahir" placeholder="ubah di sini........." required autocomplete="email">
+          <input type="Tanggal lahir" id="txttanggallahiranda" name="txttanggallahiranda" placeholder="ubah" required autocomplete="email">
         </label>
 
         <label for="txthobi"><span>Hobi:</span>
-          <input type="hobi" id="txthobi" name="txthobi" placeholder="ubah di sini........." required autocomplete="email">
+          <input type="hobi" id="txthobi" name="txthobi" placeholder="ubah" required autocomplete="email">
         </label>
 
         <label for="txtpasangan"><span>Pasangan:</span>
-          <input type="pasangan" id="txtpasangan" name="txtpasangan" placeholder="ubah di sini........." required autocomplete="email">
+          <input type="pasangan" id="txtpasangananda" name="txtpasangananda" placeholder="ubah" required autocomplete="email">
         </label>
 
         
         <label for="txtpekerjaan"><span>Pekerjaan:</span>
-          <input type="pekerjaan" id="txtpekerjaan" name="txtpekerjaan" placeholder="ubah di sini........." required autocomplete="email">
+          <input type="pekerjaan" id="txtpekerjaananda" name="txtpekerjaananda" placeholder="ubah" required autocomplete="email">
         </label>
 
         <label for="txtnamaortu"><span>Nama Orang Tua:</span>
-          <input type="nama orang tua" id="txtnamaortu" name="txtnamaortu" placeholder="ubah di sini........." required autocomplete="email">
+          <input type="nama orang tua" id="txtnamaortuanda" name="txtnamaortuanda" placeholder="ubah" required autocomplete="email">
         </label>
 
         <label for="txtnamakakak"><span>Nama Kakak:</span>
-          <input type="nama kakak" id="txtnamakakak" name="txtnamakakak" placeholder="ubah di sini........." required autocomplete="email">
+          <input type="nama kakak" id="txtnamakakakanda" name="txtnamakakakanda" placeholder="ubah" required autocomplete="email">
         </label>
 
         <label for="txtnamaadik"><span>Nama Adik:</span>
-          <input type="nama adik" id="txtnamadik" name="txtnamaadik" placeholder="ubah di sini........." required autocomplete="email">
+          <input type="nama adik" id="txtnamadikanda" name="txtnamaadikanda" placeholder="ubah" required autocomplete="email">
         </label>
 
   
@@ -150,7 +150,7 @@ $sesnamaadik = $_SESSION["txtnamaadik"] ?? "";
   </main>
 
   <footer>
-    <p><marquee>&copy; 2025 MUAZIJAN PRATAMA[2511500073]</marquee></p>
+    <p><marquee>&copy; 2025 Indra[2522500068]]</marquee></p>
   </footer>
 
   <script src="script.js"></script>
