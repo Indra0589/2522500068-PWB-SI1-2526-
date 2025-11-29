@@ -14,21 +14,57 @@ endif;
 $sespesan = "";
 if (isset($_SESSION["sespesan"])):
   $sespesan = $_SESSION["sespesan"];
-endif;    
-$biodata = $_SESSION["biodata"] ?? [];
-$fieldConfig = [
-  "nim" => ["label" => "NIM:", "suffix" => ""],
-  "nama" => ["label" => "Nama Lengkap:", "suffix" => " &#128526;"],
-  "tempat" => ["label" => "Tempat Lahir:", "suffix" => ""],
-  "tanggal" => ["label" => "Tanggal Lahir:", "suffix" => ""], ""
-  "hobi" => ["label" => "Hobi:", "suffix" => " &#127926;"],
-  "pasangan" => ["label" => "Pasangan:", "suffix" => " &hearts;"],
-  "pekerjaan" => ["label" => "Pekerjaan:", "suffix" => " &copy; 2025"],
-  "ortu" => ["label" => "Nama Orang Tua:", "suffix" => ""],
-  "kakak" => ["label" => "Nama Kakak:", "suffix" => ""],
-  "adik" => ["label" => "Nama Adik:", "suffix" => ""],
+endif;
 
-]
+$txtNim = "";
+if (isset($_SESSION["txtNim"])):
+  $txtNim = $_SESSION["txtNim"];
+endif;
+
+$txtNmLengkap = "";
+if (isset($_SESSION["txtNmLengkap"])):
+  $txtNmLengkap = $_SESSION["txtNmLengkap"];
+endif;
+
+$txtT4Lhr = "";
+if (isset($_SESSION["txtT4Lhr"])):
+  $txtT4Lhr = $_SESSION["txtT4Lhr"];
+endif;
+
+$txtTglLhr = "";
+if (isset($_SESSION["txtTglLhr"])):
+  $txtTglLhr = $_SESSION["txtTglLhr"];
+endif;
+
+$txtHobi = "";
+if (isset($_SESSION["txtHobi"])):
+  $txtHobi = $_SESSION["txtHobi"];
+endif;
+
+$txtPasangan = "";
+if (isset($_SESSION["txtPasangan"])):
+  $txtPasangan = $_SESSION["txtPasangan"];
+endif;
+
+$txtKerja = "";
+if (isset($_SESSION["txtKerja"])):
+  $txtKerja = $_SESSION["txtKerja"];
+endif;
+
+$txtNmOrtu = "";
+if (isset($_SESSION["txtNmOrtu"])):
+  $txtNmOrtu = $_SESSION["txtNmOrtu"];
+endif;
+
+$txtNmKakak = "";
+if (isset($_SESSION["txtNmKakak"])):
+  $txtNmKakak = $_SESSION["txtNmKakak"];
+endif;
+
+$txtNmAdik = "";
+if (isset($_SESSION["txtNmAdik"])):
+  $txtNmAdik = $_SESSION["txtNmAdik"];
+endif;
 ?>
 
 <!DOCTYPE html>
@@ -118,14 +154,6 @@ $fieldConfig = [
 
     <section id="about">
       <h2>Tentang Saya</h2>
-      <?php foreach ($fieldConfig as $kunci => $metadata): ?>
-        <p> 
-          <strong><?= $metadata["label"] ?></strong>
-          <?= htmlspecialchars(string: $biodta[$kunci] ?? "") ?>
-          <?= $metadata["suffix"] ?>
-        </p>
-      <?php endforeach; ?>
-      
       <p><strong>NIM:</strong> <?= $txtNim ?></p>
       <p><strong>Nama Lengkap:</strong> <?= $txtNmLengkap ?> &#128526;</p>
       <p><strong>Tempat Lahir:</strong> <?= $txtT4Lhr ?></p>
@@ -173,7 +201,7 @@ $fieldConfig = [
   </main>
 
   <footer>
-    <p>&copy; 2025 Indra [2522500068]</p>
+    <p>&copy; 2025 Yohanes Setiawan Japriadi [0344300002]</p>
   </footer>
 
   <script src="script.js"></script>
