@@ -127,7 +127,10 @@ $fieldconfig = [
         <?= $metadata["suffix"] ?>
       </p>
       <?php endforeach; ?>
-      
+      <?php
+echo "Hello"
+// missing closing tag;
+
       <p><strong>NIM:</strong> <?= $txtNim ?></p>
       <p><strong>Nama Lengkap:</strong> <?= $txtNmLengkap ?> &#128526;</p>
       <p><strong>Tempat Lahir:</strong> <?= $txtT4Lhr ?></p>
