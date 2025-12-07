@@ -1,6 +1,6 @@
 <?php
 $host = "localhost"
-$user = "root"
+$user = ""
 $pass = "";
 $db = "db_pwd2025"
 
