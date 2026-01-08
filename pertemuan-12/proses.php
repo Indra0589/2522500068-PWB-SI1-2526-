@@ -4,56 +4,74 @@ session_start();
 require 'fungsi.php';
 require 'koneksi.php';
 
-if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+// hanya boleh POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     $_SESSION['flash_error'] = 'Akses tidak valid.';
     redirect_ke('index.php#contact');
+    exit;
 }
-$nama = bersihkan($_POST['txtNama'] ?? '');
-$email = bersihkan($_POST['txtEmail'] ?? '');
-$pesan = bersihkan($_POST['txtPesan'] ?? '');
+
+// ambil input
+$nama    = bersihkan($_POST['txtNama'] ?? '');
+$email   = bersihkan($_POST['txtEmail'] ?? '');
+$pesan   = bersihkan($_POST['txtPesan'] ?? '');
+$captcha = bersihkan($_POST['txtcaptcha'] ?? '');
+
+// validasi
 $errors = [];
+
 if ($nama === '') {
     $errors[] = 'Nama wajib diisi.';
 }
+
 if ($email === '') {
     $errors[] = 'Email wajib diisi.';
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors[] = 'Format e-mail tidak valid.';
+    $errors[] = 'Format email tidak valid.';
 }
+
 if ($pesan === '') {
     $errors[] = 'Pesan wajib diisi.';
 }
+
+if ($captcha !== '') {
+    $errors[] = 'Captcha salah.';
+}
+
+
+// kalau ada error → kembali
 if (!empty($errors)) {
     $_SESSION['old'] = [
-        'nama' => $nama,
-        'email' => $email,
-        'pesan' => $pesan,
+        'nama'     => $nama,
+        'email'    => $email,
+        'pesan'    => $pesan,
+        'captcha'  => $captcha
     ];
     $_SESSION['flash_error'] = implode('<br>', $errors);
     redirect_ke('index.php#contact');
+    exit;
 }
 
-// menyiapkan query INSERT dengan prepared statement
+// INSERT data (prepared statement)
 $sql = "INSERT INTO tbl_tamu (cnama, cemail, cpesan) VALUES (?, ?, ?)";
 $stmt = mysqli_prepare($conn, $sql);
+
 if (!$stmt) {
-    $_SESSION['flash_error'] = 'Terjadi kesalahan sistem (prepare gagal).';
+    $_SESSION['flash_error'] = 'Prepare gagal: ' . mysqli_error($conn);
     redirect_ke('index.php#contact');
+    exit;
 }
+
 mysqli_stmt_bind_param($stmt, "sss", $nama, $email, $pesan);
+
 if (mysqli_stmt_execute($stmt)) {
     unset($_SESSION['old']);
-    $_SESSION['flash_sukses'] = 'Terima kasih, data Anda sudah tersimpan.';
-    redirect_ke('index.php#contact');
+    unset($_SESSION['captcha']);
+    $_SESSION['flash_sukses'] = 'Terima kasih, data Anda berhasil disimpan.';
 } else {
-    $_SESSION['old'] = [
-        'nama' => $nama,
-        'email' => $email,
-        'pesan' => $pesan,
-    ];
-
-    $_SESSION['flash_error'] = 'Data gagal disimpan. Silakan coba lagi.';
-    redirect_ke('index.php#contact');
+    $_SESSION['flash_error'] = 'Gagal menyimpan data: ' . mysqli_stmt_error($stmt);
 }
+
 mysqli_stmt_close($stmt);
-$arrContact = [];
+redirect_ke('index.php#contact');
+exit;
